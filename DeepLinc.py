@@ -30,7 +30,7 @@ def parse_args():
     parser.add_argument('--latent_feature', '-l', default=None, help='')
 
     # Training options
-    parser.add_argument('--test_ratio', '-t', type=int, default=0.1, help='Testing set ratio 大于1时，代表边数；小于1时，代表比例 (default: 0.1)')    
+    parser.add_argument('--test_ratio', '-t', type=int, default=0.1, help='Testing set ratio (>1: edge number, <1: edge ratio; default: 0.1)')    
     parser.add_argument('--iteration', '-i', type=int, default=2, help='Iteration (default: 40)')
     parser.add_argument('--encode_dim', type=int, nargs=2, default=[125, 125], help='Encoder structure')
     parser.add_argument('--regularization_dim', type=int, nargs=2, default=[150, 125], help='Adversarial regularization structure') #TODO:[125, 125, ]
@@ -83,6 +83,8 @@ if __name__ == '__main__':
         raise ImportError('DeepLinc requires TensorFlow. Please follow instructions'
                           ' at https://www.tensorflow.org/install/ to install'
                           ' it.')
+    import warnings
+    warnings.filterwarnings("ignore")
     import numpy as np
     import pandas as pd
     import scipy.sparse as sp
@@ -125,6 +127,9 @@ if __name__ == '__main__':
     print('Cell number: {}\nGene number: {}\nPredefined local connection number: {}\niteration: {}'.format(
             cell_num, gene_num, predefined_edge_num, args.iteration))
     print("============================")
+
+    # Create storage folders
+    os.mkdir("./model")
 
     # Building model and optimizer
     # dims = []
