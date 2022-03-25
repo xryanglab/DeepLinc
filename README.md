@@ -19,7 +19,7 @@ DeepLinc depends on the following packages: numpy, pandas, scipy, matplotlib, se
 pip install --requirement requirements.txt
 ```
 
-## Usage
+### Usage
 Assume we have (1) a CSV-formatted raw count matrix ``counts.csv`` with cells in rows and genes in columns (2) a coordinate file ``coord.csv`` including X and Y columns (3) an adjacent matrix in ``adj.csv`` as a predefined local interaction map (4) a cell type annotation file ``cell_type.csv`` including columns Cell_ID, Cell_class_id and Cell_class_name. The cell type information is not essential for reconstructing cell interaction landscapes. We will provide a preprocessing module to help users transform the general coordinate information from single-cell spatial transcriptome data into the adjacency matrix.
 
 You can run a demo from the command line:
@@ -27,7 +27,7 @@ You can run a demo from the command line:
 ``python DeepLinc.py -e ./dataset/seqFISH/counts.csv -a ./dataset/seqFISH/adj.csv -c ./dataset/seqFISH/coord.csv -r ./dataset/seqFISH/cell_type_1.csv``
 
 
-## Results
+### Results
 
 The final output reports the AUPRC performance, the reconstructed cell adjacency matrix, the over- or under-representation of interaction between cell groups, the latent feature for each cell and the saved model.
 
