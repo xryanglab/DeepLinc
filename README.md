@@ -3,7 +3,7 @@ DeepLinc is a tool for de novo reconstruction of cell interaction landscapes fro
 
 ## Version
 
-1.0.0
+1.0.0 (We will soon update the code and add systematic and flexible modules)
 
 ## Authors
 
