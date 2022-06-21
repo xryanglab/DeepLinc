@@ -54,8 +54,6 @@ if __name__ == '__main__':
     else:
         cutoff_distance = args.dist_cutoff
 
-    print(args.dist_cutoff)
-
     adjacency_matrix1 = copy.deepcopy(dist_matrix)
     adjacency_matrix1 = np.int64(adjacency_matrix1 < cutoff_distance)
     for j in range(0, adjacency_matrix1.shape[0]):
@@ -71,7 +69,7 @@ if __name__ == '__main__':
     adj = adj + adj.T
     adj = (adj != 0).astype('int')
     adj = pd.DataFrame(adj)
-    adj.to_csv('adj_'+str(cutoff_distance)+'.csv', header=True, index=False)
+    adj.to_csv('adj_dist%.2f'%cutoff_distance+'_neigh'+str(args.link_num)+'.csv', header=True, index=False)
 
     # Output the distance between each cell and its n nearest neighbors to monitor whether the threshold settings are reasonable
     plot_histogram(dist_matrix_rongyu, 'distance', 'count', 'Distance_distribution_for_each_cell_pair')
