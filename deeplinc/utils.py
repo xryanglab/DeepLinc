@@ -172,9 +172,22 @@ def packed_data(exp_values, adj_values, test_ratio=0.1):
 
     items = [adj_train, num_features, num_nodes, features_nonzero, pos_weight, 
               norm, adj_norm, adj_label, features, train_edges, test_edges, test_edges_false]
+    # feas = {}
+    # for item in items:
+    #     feas[retrieve_name(item).pop()] = item
     feas = {}
-    for item in items:
-        feas[retrieve_name(item).pop()] = item
+    feas.update({'adj_train': adj_train})
+    feas.update({'num_features': num_features})
+    feas.update({'num_nodes': num_nodes})
+    feas.update({'features_nonzero': features_nonzero})
+    feas.update({'pos_weight': pos_weight})
+    feas.update({'norm': norm})
+    feas.update({'adj_norm': adj_norm})
+    feas.update({'adj_label': adj_label})
+    feas.update({'features': features})
+    feas.update({'train_edges': train_edges})
+    feas.update({'test_edges': test_edges})
+    feas.update({'test_edges_false': test_edges_false})
 
     return feas
 
